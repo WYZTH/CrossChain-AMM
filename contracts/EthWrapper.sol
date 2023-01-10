@@ -440,6 +440,10 @@ contract ETHWrapper is Ownable {
 
     address public USDT;
 
+    event Deposit(uint amount, address beneficiery);
+
+    event Withdraw(uint amount, address beneficiery);
+
     constructor(
         IPancakeRouter02 _router,
         address _wrapperUSDT,
@@ -489,6 +493,7 @@ contract ETHWrapper is Ownable {
         );
         // result[0] is Wrapper USDT received
         // Burn it here
+        emit Deposit(amount, beneficiery);
     }
 
     // function withdraw
@@ -521,5 +526,6 @@ contract ETHWrapper is Ownable {
             block.timestamp + 5 minutes
         );
         // // result[0] is wyzth received
+        emit Withdraw(amount, beneficiery);
     }
 }

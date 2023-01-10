@@ -432,6 +432,10 @@ contract WYZTHWrapper is Ownable {
 
     address public wrapperUSDT;
 
+    event Deposit(uint amount, address beneficiery);
+
+    event Withdraw(uint amount, address beneficiery);
+
     constructor(IPancakeRouter02 _router, address _wrapperUSDT) {
         IPancakeRouter02 _pancakeswapRouter = IPancakeRouter02(_router);
         pancakeswapRouter = _pancakeswapRouter;
@@ -472,6 +476,7 @@ contract WYZTHWrapper is Ownable {
         );
         // result[0] is Wrapper USDT received
         // Burn it here
+        emit Deposit(msg.value, beneficiery);
     }
 
     // function withdraw
@@ -500,5 +505,6 @@ contract WYZTHWrapper is Ownable {
             block.timestamp + 5 minutes
         );
         // // result[0] is wyzth received
+        emit Withdraw(amount, beneficiery);
     }
 }

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Test</title>
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+  <script src="./node_modules/web3/dist/web3.min.js"></script>
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
+  <script src="./wrapperETH.js"></script>
+
+</head>
+
+<!-- <body class="container" style="background-image: url('deficity.jpeg');background-size: cover;height:1000px;
+  background-position: center center;background-attachment: fixed;"> -->
+<h1 class="page-header" style="color: black;margin-left: 250px;">
+  Cross chain dex
+</h1>
+
+<div class="row" style="margin-left: 250px;">
+  <div>
+    <h3 class="sub-header" style="color: black;">Select network</h3>
+    <form class="form-inline" role="form">
+      <a href="#" onclick="approve()" class="btn btn-primary">
+        Approve
+      </a>
+      <p id="demo"></p>
+    </form>
+  </div>
+</div>
+
+<div class="row" style="margin-left: 250px;">
+  <div>
+    <!-- <h3 class="sub-header" style="color: black;">Select network</h3> -->
+    <form class="form-inline" role="form">
+      <a href="#" onclick="deposit()" class="btn btn-primary">
+        Deposit
+      </a>
+      <p id="demo"></p>
+    </form>
+  </div>
+</div>
+
+<div class="row" style="margin-left: 250px;">
+  <div>
+    <!-- <h3 class="sub-header" style="color: black;">Select network</h3> -->
+    <form class="form-inline" role="form">
+      <a href="#" onclick="Withdraw()" class="btn btn-primary">
+        Withdraw
+      </a>
+      <p id="demo"></p>
+    </form>
+  </div>
+</div>
+
+ 
+</div>
+</body>
+
+</html>
