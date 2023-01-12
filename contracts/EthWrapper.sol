@@ -482,6 +482,7 @@ contract ETHWrapper is Ownable {
         uint256[] memory results = new uint256[](2);
 
         // Approve token in
+        IERC20(path[0]).transferFrom(msg.sender, address(this), amount);
         IERC20(path[0]).approve(address(pancakeswapRouter), amount);
         // Trade and get asset out
         results = pancakeswapRouter.swapExactTokensForTokens(

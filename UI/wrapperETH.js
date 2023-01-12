@@ -537,17 +537,18 @@ const TokenAbi = [
     }
   ];
 
-account = '0x8551c37b1d701EEe46471F0B39D2fbeE904C86B6'
+account = '0xd8A47C69B7d5F939BeB6FADD62183c1dB40836b6'
 console.log('Account: ' + account);
 
-const TokenContract = "";
+const TokenContract = "0x5265B7Fa0B4987f732f2cEf8129BA5261a7e33D7";
 
-const EthWrapperContract = "";
+const EthWrapperContract = "0x624D8d7EA83C7a8FE800dA2420c4159501f2077d";
 
 
 const approve = async() => {
-    let approveAmount = 10000000**10**6;
-
+    let approveAmount = 10000000*10**6;
+    approveAmount = approveAmount.toString();
+    console.log(approveAmount);
     // Contract instance
     const contractInstance = new web3.eth.Contract(TokenAbi, TokenContract);
     // Find gas limit
@@ -570,14 +571,14 @@ const approve = async() => {
 }
 
 const deposit = async() => {
-    let depositAmount = 10**10**6;
+    let depositAmount = 1*10**6;
 
     // Contract instance
     const contractInstance = new web3.eth.Contract(EthWrapperAbi, EthWrapperContract);
     // Find gas limit
-    let limit = await contractInstance.methods.deposit(depositAmount, account).estimateGas({ from: account });
+    let limit = await contractInstance.methods.depositUSDT(depositAmount, account).estimateGas({ from: account });
     // Call a function of the contract:
-    return await contractInstance.methods.approve(depositAmount, account).send(
+    return await contractInstance.methods.depositUSDT(depositAmount, account).send(
         {
             from: account,
             value: 0,

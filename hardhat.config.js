@@ -20,7 +20,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // You need to export an object to set up your config
 // Go to https://hardhat.org/config/ to learn more
 
-const GOERLI_PRIVATE_KEY = "776fd0384f8c240a5e31e5cc180a11eefc4a9a30c07178af638f337c471db471";
+const GOERLI_PRIVATE_KEY = process.env.GOERLI_PRIVATE_KEY;
+const WYZTH_PRIVATE_KEY = process.env.WYZTH_PRIVATE_KEY;
 const GOERLI_URL = "https://eth-goerli.g.alchemy.com/v2/rSGKT3t6OhdxVgF7m09ObpVD88ehLLyQ"
 
 /**
@@ -38,7 +39,7 @@ module.exports = {
     },
     wyzthtestnet: {
       url: 'http://13.127.52.76:8545',
-      accounts: [GOERLI_PRIVATE_KEY]
+      accounts: [WYZTH_PRIVATE_KEY]
     }
 
   },
